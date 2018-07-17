@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1673" started-at="2018-07-17T18:40:16Z" finished-at="2018-07-17T18:40:18Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1673" started-at="2018-07-17T18:40:16Z" finished-at="2018-07-17T18:40:18Z">
+      <class name="com.qtpselenium.hybrid.suitea.LoginTest">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="init" is-config="true" duration-ms="1611" started-at="2018-07-18T00:10:16Z" finished-at="2018-07-18T00:10:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="logintest(java.lang.String)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="logintest" duration-ms="11" started-at="2018-07-18T00:10:17Z" data-provider="getData" finished-at="2018-07-18T00:10:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logintest -->
+      </class> <!-- com.qtpselenium.hybrid.suitea.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
