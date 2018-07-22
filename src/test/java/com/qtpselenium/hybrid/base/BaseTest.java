@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 
+import com.qtpselenium.hybrid.driver.DriverScript;
+import com.qtpselenium.hybrid.util.DataUtil;
 import com.qtpselenium.hybrid.util.Xls_Reader;
 
 public class BaseTest {
@@ -17,12 +20,21 @@ public class BaseTest {
 	
 	public Xls_Reader xls;
 	
+	public String testName;
+	
+	public DriverScript ds;
 	
 	
 	@BeforeTest
 	public void init() {
-		
+		// init testName
 		System.out.println("Before Test");
+		System.out.println("*** "+ this.getClass().getSimpleName());
+		testName=this.getClass().getSimpleName();
+		
+		String arr[] = this.getClass().getPackage().getName().split("\\.");
+		String suiteName= arr[arr.length-1];
+		
 		prop=new Properties();
 		envProp= new Properties();
 		try {
@@ -40,6 +52,24 @@ public class BaseTest {
 		
 		
 		//initial the excel file 
-		xls =new Xls_Reader(envProp.getProperty("suitea_xls"));
+		System.out.println(envProp.getProperty(suiteName+"_xls"));
+		xls = new Xls_Reader(envProp.getProperty(suiteName+"_xls"));
+		//xls =new Xls_Reader(envProp.getProperty("suitea_xls"));
+		
+		
+		ds = new DriverScript();
+		 ds.setEnvProp(envProp);
+		 ds.setProp(prop);
 	}
+	
+	
+	
+	@DataProvider
+	public Object[][] getData(){
+		// i can use xls file object to read data
+		System.out.println("Inside data Provider");
+		return DataUtil.getTestData(testName, xls);
+	}
+	
+	
 }

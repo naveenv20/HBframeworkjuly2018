@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Naveen\AppData\Local\Temp\testng-eclipse-1475794132\testng-customsuite.xml</span>
+                    <span>C:\Users\Naveen\AppData\Local\Temp\testng-eclipse--796596792\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.qtpselenium.hybrid.suitea.LoginTest" hash-for-method="logintest(a)">logintest(a)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.qtpselenium.hybrid.suitea.LoginTest" hash-for-method="logintest({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge})">logintest({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.qtpselenium.hybrid.suitea.LoginTest" hash-for-method="logintest({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla})">logintest({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.qtpselenium.hybrid.suitea.LoginTest" hash-for-method="logintest({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser...)">logintest({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -125,10 +135,26 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="logintest(a)">
-                  </a> <!-- logintest(a) -->
+                  <a name="logintest({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge})">
+                  </a> <!-- logintest({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge}) -->
                   <span class="method-name">logintest</span>
-                  <span class="parameters">(a)</span>
+                  <span class="parameters">({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logintest({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla})">
+                  </a> <!-- logintest({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla}) -->
+                  <span class="method-name">logintest</span>
+                  <span class="parameters">({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logintest({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser...)">
+                  </a> <!-- logintest({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser...) -->
+                  <span class="method-name">logintest</span>
+                  <span class="parameters">({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser=Chrome})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +162,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Naveen\AppData\Local\Temp\testng-eclipse-1475794132\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Naveen\AppData\Local\Temp\testng-eclipse--796596792\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,16 +211,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'logintest')
 data.setCell(0, 2, 'com.qtpselenium.hybrid.suitea.LoginTest')
-data.setCell(0, 3, 11);
+data.setCell(0, 3, 33);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'logintest')
+data.setCell(1, 2, 'com.qtpselenium.hybrid.suitea.LoginTest')
+data.setCell(1, 3, 30);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'logintest')
+data.setCell(2, 2, 'com.qtpselenium.hybrid.suitea.LoginTest')
+data.setCell(2, 3, 16);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 11 ms</span>
+              <span class="suite-total-time">Total running time: 79 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -226,8 +260,16 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">logintest(a)</span>
-                <span class="method-start">1646 ms</span>
+                <span class="method-name">logintest({Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla})</span>
+                <span class="method-start">1209 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logintest({Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser...)</span>
+                <span class="method-start">1242 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logintest({Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge})</span>
+                <span class="method-start">1277 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

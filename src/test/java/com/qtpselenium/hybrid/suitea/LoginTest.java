@@ -1,5 +1,7 @@
 package com.qtpselenium.hybrid.suitea;
 
+import java.util.Hashtable;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -10,20 +12,13 @@ public class LoginTest extends BaseTest{
 
 	
 	@Test(dataProvider="getData")
-	public void logintest(String a) {
+	public void logintest(Hashtable<String,String> data) {
 	
 		System.out.println("Login Test");
-		System.out.println("From Dp"+a);
+		System.out.println("From Dp"+ data);
+		ds.executeKeywords(testName, xls, data);
 	}
 	
 	
-	@DataProvider
-	public Object[][] getData(){
-		System.out.println("DataProvider");
-		Object[][] data= new Object[1][1];
-		data[0][0]="a";
-		return data;
-		
-		
-	}
+	
 }
