@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest{
 
 	
 	@Test(dataProvider="getData")
-	public void logintest(Hashtable<String,String> data) {
+	public void logintest(Hashtable<String,String> data) throws Exception {
 	
 		System.out.println("Login Test");
 		System.out.println("From Dp"+ data);

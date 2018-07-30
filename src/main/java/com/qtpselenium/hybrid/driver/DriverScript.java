@@ -1,22 +1,35 @@
 package com.qtpselenium.hybrid.driver;
 
+import java.lang.reflect.Method;
 import java.util.Hashtable;
 import java.util.Properties;
 
 import com.qtpselenium.hybrid.util.Constants;
 import com.qtpselenium.hybrid.util.Xls_Reader;
+import com.qtpselenium.keywords.AppKeywords;
 
 public class DriverScript {
 
 	
 	public Properties envProp;
 	public Properties prop;
+	AppKeywords app;
 	
 		// TODO Auto-generated method stub
 //Read the Keywords
-		public void executeKeywords(String testName, Xls_Reader xls, Hashtable<String,String> testData){
+		public void executeKeywords(String testName, Xls_Reader xls, Hashtable<String,String> testData) throws Exception{
 			int rows = xls.getRowCount(Constants.KEYWORDS_SHEET);
 			System.out.println("Rows "+ rows);
+			app = new AppKeywords();
+			
+			app = new AppKeywords();
+			// send prop to keywords class
+			app.setEnvProp(envProp);
+			app.setProp(prop);
+			// send the data
+			app.setData(testData);
+			
+			
 			
 			for(int rNum=2;rNum<=rows;rNum++){
 				String tcid = xls.getCellData(Constants.KEYWORDS_SHEET, Constants.TCID_COL, rNum);
@@ -26,10 +39,15 @@ public class DriverScript {
 						String dataKey= xls.getCellData(Constants.KEYWORDS_SHEET, Constants.DATA_COL, rNum);
 						String proceedOnFail=xls.getCellData(Constants.KEYWORDS_SHEET, Constants.PROCEED_COL, rNum);
 						String data = testData.get(dataKey);
-						System.out.println(tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
+						//System.out.println(tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
 						//test.log(Status.INFO, tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
+						app.setDataKey(dataKey);
+						app.setObjectKey(objectKey);
 						
-							
+						// Reflections Api
+						Method method;
+						method = app.getClass().getMethod(keyword);
+						method.invoke(app);
 						
 					}
 				}
