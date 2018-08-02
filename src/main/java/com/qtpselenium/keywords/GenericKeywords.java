@@ -19,6 +19,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 public class GenericKeywords {
 	
 	
@@ -29,6 +32,7 @@ public class GenericKeywords {
 	
 	public Hashtable<String,String> data;
 	public WebDriver driver;
+	public ExtentTest test;
 	
 	/*********************Setter functions***************************/
 	
@@ -59,11 +63,17 @@ public class GenericKeywords {
 	public void setData(Hashtable<String, String> data) {
 		this.data = data;
 	}
+	
+	public void setExtentTest(ExtentTest test) {
+		this.test = test;
+	}
 
     /*****************************************/
 
 	public void openBrowser(){
+		
 		String browser=data.get(dataKey);
+		test.log(Status.INFO,"Opening Browser "+browser);
 		if(browser.equals("Mozilla")){
 			//CHECK module 11************
 			// options
@@ -88,52 +98,83 @@ public class GenericKeywords {
 	}
 	
 	public void navigate(){
-		System.out.println(envProp.getProperty(objectKey));
+		test.log(Status.INFO,"Clicking "+envProp.getProperty(objectKey));
+		//System.out.println(envProp.getProperty(objectKey));
 		driver.get(envProp.getProperty(objectKey));
 	}
 
 	
 	
 	public void click(){
-		//test.log(Status.INFO,"Clicking "+prop.getProperty(objectKey));
+		test.log(Status.INFO,"Clicking "+prop.getProperty(objectKey));
 		getObject(objectKey).click();
 	}
 	
 	
 	public void type(){
-		//test.log(Status.INFO,"Typing in "+prop.getProperty(objectKey)+" . Data - "+data.get(dataKey));
+		test.log(Status.INFO,"Typing in "+prop.getProperty(objectKey)+" . Data - "+data.get(dataKey));
 		getObject(objectKey).sendKeys(data.get(dataKey));
 	}
 	
-	
-	public WebElement getObject(String objectKey){
-		WebElement e=null;
-		try{
-		if(objectKey.endsWith("_xpath"))
-			e = driver.findElement(By.xpath(prop.getProperty(objectKey)));
-		else if(objectKey.endsWith("_id"))
-			e = driver.findElement(By.id(prop.getProperty(objectKey)));
-		else if(objectKey.endsWith("_css"))
-			e = driver.findElement(By.cssSelector(prop.getProperty(objectKey)));
-		else if(objectKey.endsWith("_name"))
-			e = driver.findElement(By.name(prop.getProperty(objectKey)));
-
-		WebDriverWait wait = new WebDriverWait(driver,20);
-		// visibility of Object
-		wait.until(ExpectedConditions.visibilityOf(e));
-		// state of the object-  clickable
-		wait.until(ExpectedConditions.elementToBeClickable(e));
-		
-		}catch(Exception ex){
-			// failure -  report that failure
-			reportFailure("Object Not Found "+ objectKey);
-		}
-		return e;
-		
+	public void quit(){
+		if(driver!=null)
+			driver.quit();
 	}
 	
 	
+	
 	// true - present
+		// false - not present
+		
+		
+		public void validateTitle(){
+			test.log(Status.INFO,"Validating title - "+prop.getProperty(objectKey) );
+			String expectedTitle = prop.getProperty(objectKey);
+			String actualTitle=driver.getTitle();
+			if(!expectedTitle.equals(actualTitle)){
+				// report failure
+				reportFailure("Titles did not match. Got title as "+ actualTitle);
+			}
+		}
+		
+		public void validateElementPresent(){
+			if(!isElementPresent(objectKey)){
+				// report failure
+				reportFailure("Element not found "+objectKey);
+			}
+		}
+		
+		
+		
+		
+		/*********************Utitlity Functions************************/
+		// central function to extract Objects
+		public WebElement getObject(String objectKey){
+			WebElement e=null;
+			try{
+			if(objectKey.endsWith("_xpath"))
+				e = driver.findElement(By.xpath(prop.getProperty(objectKey)));
+			else if(objectKey.endsWith("_id"))
+				e = driver.findElement(By.id(prop.getProperty(objectKey)));
+			else if(objectKey.endsWith("_css"))
+				e = driver.findElement(By.cssSelector(prop.getProperty(objectKey)));
+			else if(objectKey.endsWith("_name"))
+				e = driver.findElement(By.name(prop.getProperty(objectKey)));
+
+			WebDriverWait wait = new WebDriverWait(driver,20);
+			// visibility of Object
+			wait.until(ExpectedConditions.visibilityOf(e));
+			// state of the object-  clickable
+			wait.until(ExpectedConditions.elementToBeClickable(e));
+			
+			}catch(Exception ex){
+				// failure -  report that failure
+				reportFailure("Object Not Found "+ objectKey);
+			}
+			return e;
+			
+		}
+		// true - present
 		// false - not present
 		public boolean isElementPresent(String objectKey){
 			List<WebElement> list=null;
@@ -152,6 +193,7 @@ public class GenericKeywords {
 			else
 				return true;
 		}
+		
 		
 		/*******Reporting function********/
 		public void reportFailure(String failureMsg){

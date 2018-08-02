@@ -6,7 +6,9 @@
       <class name="com.qtpselenium.hybrid.suitea.LoginTest">
         <methods>
           <include name="logintest" invocation-numbers="0 1 2"/>
+          <include name="quit"/>
           <include name="init"/>
+          <include name="initTest"/>
         </methods>
       </class> <!-- com.qtpselenium.hybrid.suitea.LoginTest -->
     </classes>

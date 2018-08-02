@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="3" ignored="0" total="3" passed="0">
+<testng-results skipped="1" failed="2" ignored="0" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1828" started-at="2018-07-30T18:20:39Z" finished-at="2018-07-30T18:20:41Z">
+  <suite name="Default suite" duration-ms="3695" started-at="2018-08-02T18:43:30Z" finished-at="2018-08-02T18:43:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1828" started-at="2018-07-30T18:20:39Z" finished-at="2018-07-30T18:20:41Z">
+    <test name="Default test" duration-ms="3695" started-at="2018-08-02T18:43:30Z" finished-at="2018-08-02T18:43:34Z">
       <class name="com.qtpselenium.hybrid.suitea.LoginTest">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="init" is-config="true" duration-ms="1672" started-at="2018-07-30T23:50:39Z" finished-at="2018-07-30T23:50:41Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="init" is-config="true" duration-ms="1498" started-at="2018-08-03T00:13:30Z" finished-at="2018-08-03T00:13:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="FAIL" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="logintest" duration-ms="26" started-at="2018-07-30T23:50:41Z" data-provider="getData" finished-at="2018-07-30T23:50:41Z">
+        <test-method status="PASS" signature="initTest()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="initTest" is-config="true" duration-ms="456" started-at="2018-08-03T00:13:32Z" finished-at="2018-08-03T00:13:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTest -->
+        <test-method status="FAIL" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="logintest" duration-ms="286" started-at="2018-08-03T00:13:32Z" data-provider="getData" finished-at="2018-08-03T00:13:32Z">
           <params>
             <param index="0">
               <value>
@@ -19,15 +23,15 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NoSuchMethodException">
-            <message>
-              <![CDATA[com.qtpselenium.keywords.AppKeywords.validateTitle()]]>
-            </message>
+          <exception class="java.lang.reflect.InvocationTargetException">
             <full-stacktrace>
-              <![CDATA[java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+              <![CDATA[java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -53,13 +57,33 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalStateException: The driver executable does not exist: D:\Common\drivers\geckodriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:534)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
+	at org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:41)
+	at org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:141)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:158)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.<init>(FirefoxDriver.java:98)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:83)
+	... 31 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NoSuchMethodException -->
+          </exception> <!-- java.lang.reflect.InvocationTargetException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintest -->
-        <test-method status="FAIL" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="logintest" duration-ms="10" started-at="2018-07-30T23:50:41Z" data-provider="getData" finished-at="2018-07-30T23:50:41Z">
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="quit" is-config="true" duration-ms="859" started-at="2018-08-03T00:13:32Z" finished-at="2018-08-03T00:13:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+        <test-method status="PASS" signature="initTest()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="initTest" is-config="true" duration-ms="1" started-at="2018-08-03T00:13:33Z" finished-at="2018-08-03T00:13:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTest -->
+        <test-method status="FAIL" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="logintest" duration-ms="37" started-at="2018-08-03T00:13:33Z" data-provider="getData" finished-at="2018-08-03T00:13:33Z">
           <params>
             <param index="0">
               <value>
@@ -67,15 +91,15 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NoSuchMethodException">
-            <message>
-              <![CDATA[com.qtpselenium.keywords.AppKeywords.validateTitle()]]>
-            </message>
+          <exception class="java.lang.reflect.InvocationTargetException">
             <full-stacktrace>
-              <![CDATA[java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+              <![CDATA[java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -101,13 +125,27 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:754)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:123)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:86)
+	... 31 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NoSuchMethodException -->
+          </exception> <!-- java.lang.reflect.InvocationTargetException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintest -->
-        <test-method status="FAIL" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8]" name="logintest" duration-ms="5" started-at="2018-07-30T23:50:41Z" data-provider="getData" finished-at="2018-07-30T23:50:41Z">
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="quit" is-config="true" duration-ms="248" started-at="2018-08-03T00:13:33Z" finished-at="2018-08-03T00:13:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+        <test-method status="SKIP" signature="logintest(java.util.Hashtable)[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="logintest" duration-ms="5" started-at="2018-08-03T00:13:34Z" data-provider="getData" finished-at="2018-08-03T00:13:34Z">
           <params>
             <param index="0">
               <value>
@@ -115,15 +153,13 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NoSuchMethodException">
+          <exception class="org.testng.SkipException">
             <message>
-              <![CDATA[com.qtpselenium.keywords.AppKeywords.validateTitle()]]>
+              <![CDATA[Runmode is set to NO]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+              <![CDATA[org.testng.SkipException: Runmode is set to NO
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -151,10 +187,18 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NoSuchMethodException -->
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintest -->
+        <test-method status="PASS" signature="initTest()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="initTest" is-config="true" duration-ms="0" started-at="2018-08-03T00:13:34Z" finished-at="2018-08-03T00:13:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initTest -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.qtpselenium.hybrid.suitea.LoginTest@d8355a8]" name="quit" is-config="true" duration-ms="183" started-at="2018-08-03T00:13:34Z" finished-at="2018-08-03T00:13:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
       </class> <!-- com.qtpselenium.hybrid.suitea.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

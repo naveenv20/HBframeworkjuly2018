@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/3/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/2/1</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Jul 30 23:50:39 IST 2018</td>
+<td>Started on:</td><td>Fri Aug 03 00:13:30 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1828 ms)</td>
+<tr><td>Total time:</td><td>3 seconds (3695 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,10 +76,13 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.qtpselenium.hybrid.suitea.LoginTest.logintest()'><b>logintest</b><br>Test class: com.qtpselenium.hybrid.suitea.LoginTest<br>Parameters: {Username=U1, ExpectedResult=LoginSuccess, Password=P1, Runmode=Y, Browser=Mozilla}</td>
-<td><div><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+<td><div><pre>java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -105,11 +108,26 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace825936265", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace825936265'><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+Caused by: java.lang.IllegalStateException: The driver executable does not exist: D:\Common\drivers\geckodriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:534)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
+	at org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:41)
+	at org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:141)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:158)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:83)
+	... 31 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace613298587", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace613298587'><pre>java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -135,15 +153,30 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalStateException: The driver executable does not exist: D:\Common\drivers\geckodriver.exe
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:534)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:136)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:131)
+	at org.openqa.selenium.firefox.GeckoDriverService.access$100(GeckoDriverService.java:41)
+	at org.openqa.selenium.firefox.GeckoDriverService$Builder.findDefaultExecutable(GeckoDriverService.java:141)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.firefox.FirefoxDriver.toExecutor(FirefoxDriver.java:158)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:120)
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:98)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:83)
+	... 31 more
 </pre></div></td>
 <td>0</td>
-<td>com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8</td></tr>
+<td>com.qtpselenium.hybrid.suitea.LoginTest@d8355a8</td></tr>
 <tr>
 <td title='com.qtpselenium.hybrid.suitea.LoginTest.logintest()'><b>logintest</b><br>Test class: com.qtpselenium.hybrid.suitea.LoginTest<br>Parameters: {Username=itsthaku.r@gmail.com, ExpectedResult=LoginSuccess, Password=Ashish@123, Runmode=Y, Browser=Chrome}</td>
-<td><div><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+<td><div><pre>java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -169,11 +202,24 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace711327356", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace711327356'><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+Caused by: java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:754)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:86)
+	... 31 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace62343880", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace62343880'><pre>java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:52)
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -199,15 +245,31 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.IllegalStateException: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:754)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:124)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:32)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:339)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
+	at com.qtpselenium.keywords.GenericKeywords.openBrowser(GenericKeywords.java:86)
+	... 31 more
 </pre></div></td>
 <td>0</td>
-<td>com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8</td></tr>
+<td>com.qtpselenium.hybrid.suitea.LoginTest@d8355a8</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
 <td title='com.qtpselenium.hybrid.suitea.LoginTest.logintest()'><b>logintest</b><br>Test class: com.qtpselenium.hybrid.suitea.LoginTest<br>Parameters: {Username=U3, ExpectedResult=LoginFailure, Password=P3, Runmode=N, Browser=Edge}</td>
-<td><div><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+<td><div><pre>org.testng.SkipException: Runmode is set to NO
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -233,11 +295,9 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1661123505", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1661123505'><pre>java.lang.NoSuchMethodException: com.qtpselenium.keywords.AppKeywords.validateTitle()
-	at java.lang.Class.getMethod(Unknown Source)
-	at com.qtpselenium.hybrid.driver.DriverScript.executeKeywords(DriverScript.java:49)
-	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:19)
+</pre></div><a href='#' onClick='toggleBox("stack-trace817686795", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace817686795'><pre>org.testng.SkipException: Runmode is set to NO
+	at com.qtpselenium.hybrid.suitea.LoginTest.logintest(LoginTest.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -265,7 +325,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.qtpselenium.hybrid.suitea.LoginTest@4c70fda8</td></tr>
+<td>com.qtpselenium.hybrid.suitea.LoginTest@d8355a8</td></tr>
 </table><p>
 </body>
 </html>

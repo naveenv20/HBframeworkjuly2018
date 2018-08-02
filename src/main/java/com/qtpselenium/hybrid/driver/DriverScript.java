@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.Hashtable;
 import java.util.Properties;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.qtpselenium.hybrid.util.Constants;
 import com.qtpselenium.hybrid.util.Xls_Reader;
 import com.qtpselenium.keywords.AppKeywords;
@@ -13,6 +14,7 @@ public class DriverScript {
 	
 	public Properties envProp;
 	public Properties prop;
+	public ExtentTest test;
 	AppKeywords app;
 	
 		// TODO Auto-generated method stub
@@ -22,13 +24,13 @@ public class DriverScript {
 			System.out.println("Rows "+ rows);
 			app = new AppKeywords();
 			
-			app = new AppKeywords();
+			//app = new AppKeywords();
 			// send prop to keywords class
 			app.setEnvProp(envProp);
 			app.setProp(prop);
 			// send the data
 			app.setData(testData);
-			
+			app.setExtentTest(test);
 			
 			
 			for(int rNum=2;rNum<=rows;rNum++){
@@ -71,5 +73,14 @@ public class DriverScript {
 			this.prop = prop;
 		}
 
+		public void quit(){
+			if(app!=null)
+			app.quit();
+		}
+
+		public void setExtentTest(ExtentTest test) {
+			this.test = test;
+		}
+		
 
 }
