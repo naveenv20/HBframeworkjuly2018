@@ -1,12 +1,14 @@
 package com.qtpselenium.keywords;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,7 +23,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.qtpselenium.hybrid.reports.ExtentManager;
 
+import org.testng.asserts.SoftAssert;
 public class GenericKeywords {
 	
 	
@@ -33,7 +37,8 @@ public class GenericKeywords {
 	public Hashtable<String,String> data;
 	public WebDriver driver;
 	public ExtentTest test;
-	
+	public String proceedOnFail;
+	public SoftAssert softAssert = new SoftAssert();
 	/*********************Setter functions***************************/
 	
 	public void setEnvProp(Properties envProp) {
@@ -67,6 +72,10 @@ public class GenericKeywords {
 	public void setExtentTest(ExtentTest test) {
 		this.test = test;
 	}
+	
+	public void setProceedOnFail(String proceedOnFail) {
+		this.proceedOnFail = proceedOnFail;
+	}
 
     /*****************************************/
 
@@ -79,9 +88,10 @@ public class GenericKeywords {
 			// options
 			//System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null");
 			// invoke profile
-			System.setProperty("webdriver.gecko.driver", "D:\\Common\\drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "C:\\TestingNav\\2018_sel\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}else if(browser.equals("Chrome")){
+			System.setProperty("webdriver.chrome.driver", "C:\\TestingNav\\2018_sel\\drivers\\chromedriver.exe");
 			// init options
 			driver = new ChromeDriver();
 		}else if(browser.equals("IE")){
@@ -198,10 +208,38 @@ public class GenericKeywords {
 		/*******Reporting function********/
 		public void reportFailure(String failureMsg){
 			
+			// fail the test
+			test.log(Status.FAIL, failureMsg);
+			// take the screenshot, embed screenshot in reports
+			takeSceenShot();
+			// fail in testng
+			//Assert.fail(failureMsg);// stop on this line
+			if(proceedOnFail.equals("Y")){// soft assertion
+				softAssert.fail(failureMsg);
+			}else{
+				softAssert.fail(failureMsg);
+				softAssert.assertAll();
+			}
 		}
 		
 		public void takeSceenShot(){
-			
+			Date d=new Date();
+			String screenshotFile=d.toString().replace(":", "_").replace(" ", "_")+".png";
+			// take screenshot
+			File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			try {
+				// get the dynamic folder name
+				FileUtils.copyFile(srcFile, new File(ExtentManager.screenshotFolderPath+screenshotFile));
+				//put screenshot file in reports
+				test.log(Status.INFO,"Screenshot-> "+ test.addScreenCaptureFromPath(ExtentManager.screenshotFolderPath+screenshotFile));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public void assertAll(){
+			softAssert.assertAll();
 		}
 	
 }

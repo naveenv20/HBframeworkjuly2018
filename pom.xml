@@ -49,8 +49,9 @@
 <dependency>
 <groupId>org.seleniumhq.selenium</groupId>
 	<artifactId>selenium-java</artifactId>
-	<version>3.11.0</version>
+	<version>3.13.0</version>
 </dependency>
+<!-- Firefox 56.0 and Gecko driver geckodriver-v0.20.0-win64 and chrome driver ChromeDriver 2.41 and chrome Version  68.0.3440.84  -->
 <dependency>
 	<groupId>com.aventstack</groupId>
 	<artifactId>extentreports</artifactId>

@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.Properties;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.qtpselenium.hybrid.util.Constants;
 import com.qtpselenium.hybrid.util.Xls_Reader;
 import com.qtpselenium.keywords.AppKeywords;
@@ -42,9 +43,10 @@ public class DriverScript {
 						String proceedOnFail=xls.getCellData(Constants.KEYWORDS_SHEET, Constants.PROCEED_COL, rNum);
 						String data = testData.get(dataKey);
 						//System.out.println(tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
-						//test.log(Status.INFO, tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
+						test.log(Status.INFO, tcid +" --- "+ keyword+" --- "+ prop.getProperty(objectKey)+" --- "+ data);
 						app.setDataKey(dataKey);
 						app.setObjectKey(objectKey);
+						app.setProceedOnFail(proceedOnFail);
 						
 						// Reflections Api
 						Method method;
@@ -53,8 +55,8 @@ public class DriverScript {
 						
 					}
 				}
-			
-			
+			test.log(Status.INFO, "Driverscript after all keywords");
+			app.assertAll();	
 	}
 
 		public Properties getEnvProp() {
